@@ -7,10 +7,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="theme-controls">
+      <button id="theme-toggle">Змінити тему</button>
+    </div>
+
     <header>
       <h1>Заяць Олег Юрійович</h1>
       <p><strong>Посада:</strong> Junior Web Developer / Студент</p>
-      <img src="./image/photo_2026.jpg" alt="Моє фото" width="700" />
+      <img
+        src="./image/photo_2026.jpg"
+        alt="Моє фото"
+        width="160"
+        height="160"
+      />
 
       <nav>
         <ul>
@@ -29,14 +38,13 @@
         <h2>Про мене</h2>
         <p>
           Я студент, який активно вивчає веб-технології. Цікавлюся розробкою
-          інтерфейсів та архітектурою інформаційних систем. Прагну розвиватися у
-          напрямку Fullstack розробки.
+          інтерфейсів.
         </p>
       </section>
 
       <section id="education">
         <h2>Освіта</h2>
-        <table border="1">
+        <table>
           <thead>
             <tr>
               <th>Період</th>
@@ -47,7 +55,7 @@
           <tbody>
             <tr>
               <td>2022 - дотепер</td>
-              <td>Національний університет "Львівська Політехніка"</td>
+              <td>НУ "Львівська Політехніка"</td>
               <td>Кібербезпека</td>
             </tr>
           </tbody>
@@ -58,70 +66,52 @@
         <h2>Досвід роботи</h2>
         <ul>
           <li>
-            <strong>Назва компанії / Проекту</strong> (2023 - 2024)
-            <p>
-              Обов'язки: Верстка статичних сторінок, робота з Git, базове
-              налаштування форм.
-            </p>
+            <strong>Freelance Project</strong> (2023 - 2024)
+            <p>Верстка статичних сторінок, робота з Git.</p>
           </li>
         </ul>
       </section>
 
-      <section id="skills">
-        <h2>Технічні навички</h2>
-        <ol>
-          <li>HTML5 (Семантична розмітка)</li>
-          <li>Базові знання Git & GitHub</li>
-          <li>Робота з формами та таблицями</li>
-          <li>Адаптивне мислення</li>
-        </ol>
+      <section id="comments-section">
+        <h2>Відгуки попередніх роботодавців (API)</h2>
+        <div id="comments-container">Завантаження відгуків...</div>
       </section>
 
       <section id="contacts">
-        <h2>Зв'язатися зі мною</h2>
-        <form action="#" method="POST">
-          <label for="name">Ваше ім'я:</label><br />
-          <input
-            type="text"
-            id="name"
-            name="user_name"
-            placeholder="Введіть ім'я"
-            required
-          /><br /><br />
-
-          <label for="email">Email:</label><br />
-          <input
-            type="email"
-            id="email"
-            name="user_email"
-            placeholder="example@mail.com"
-            required
-          /><br /><br />
-
-          <label for="message">Повідомлення:</label><br />
-          <textarea
-            id="message"
-            name="user_message"
-            rows="4"
-            cols="30"
-          ></textarea
-          ><br /><br />
-
-          <button type="submit">Надіслати</button>
-        </form>
+        <h2>Контакти</h2>
+        <p>Email: oleg.zayats@example.com</p>
       </section>
     </main>
 
-    <hr />
-
     <footer>
       <p>&copy; 2026 Заяць. Всі права захищені.</p>
-      <p>
-        Мій GitHub:
-        <a href="https://github.com/oleg-zayats" target="_blank"
-          >github.com/oleg-zayats</a
-        >
-      </p>
+      <div id="storage-display"></div>
     </footer>
+
+    <div id="contact-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3>Форма зворотнього зв'язку</h3>
+        <p>Ви вже хвилину на сайті! Чи є у вас запитання?</p>
+        <form action="https://formspree.io/f/ВАШ_ЕНДПОЙНТ" method="POST">
+          <input type="text" name="name" placeholder="Ваше ім'я" required />
+          <input type="email" name="email" placeholder="Ваш Email" required />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Номер телефону"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Ваше повідомлення"
+            rows="4"
+          ></textarea>
+          <button type="submit">Відправити</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

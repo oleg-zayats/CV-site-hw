@@ -1,239 +1,123 @@
-/*БАЗОВІ НАЛАШТУВАННЯ*/
+/* Твої базові стилі */
 html {
   background-color: #2b2b2b;
   padding: 20px;
+  transition: background 0.3s;
 }
-
 body {
   background-color: #fcf8ee;
   max-width: 800px;
   margin: 0 auto;
   padding: 40px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+  font-family: sans-serif;
   line-height: 1.6;
   position: relative;
-  border: 1px dashed #b5a999;
+  transition: all 0.3s;
 }
 
-/*ТИПОГРАФІКА*/
-h1,
-h2,
-h3 {
-  color: #b44d28;
-  margin-top: 0;
-  font-family: "Georgia", serif;
+/* Темна тема */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3 {
+  color: #ff7e4d;
+}
+.dark-mode table th {
+  background-color: #333;
+  color: #ff7e4d;
+}
+.dark-mode hr {
+  border-color: #ff7e4d;
 }
 
-/*ШАПКА (HEADER)*/
-header {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-areas:
-    "name img"
-    "title img"
-    "nav nav";
-  gap: 10px;
-  align-items: center;
+/* Кнопка перемикача */
+.theme-controls {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1001;
 }
-
-header h1 {
-  grid-area: name;
-  font-size: 2.8em;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  margin-bottom: 5px;
-  font-weight: normal;
-}
-
-header p {
-  grid-area: title;
-  color: #b44d28;
-  font-size: 1.2em;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0;
-}
-
-header img {
-  grid-area: img;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #fcf8ee;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Навігація */
-header nav {
-  grid-area: nav;
-  margin-top: 20px;
-}
-
-header nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-header nav a {
-  text-decoration: none;
-  color: #555;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 0.9em;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
-}
-
-header nav a:hover {
-  color: #b44d28;
-}
-
-/*РОЗДІЛЮВАЛЬНІ ЛІНІЇ (<hr>)*/
-hr {
+#theme-toggle {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
   border: none;
-  border-top: 3px solid #b44d28;
-  border-bottom: 1px solid #b44d28;
-  height: 5px;
-  margin: 25px 0;
-  background: transparent;
+  background: #b44d28;
+  color: white;
 }
 
-/*СЕКЦІЇ*/
-section {
-  padding: 15px 0;
-  border-bottom: 1px dashed #b5a999;
-}
-
-section:last-of-type {
-  border-bottom: none;
-}
-
-section h2 {
-  font-size: 1.2em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-/*ТАБЛИЦЯ (Освіта)*/
+/* Таблиця */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-  font-size: 0.95em;
+  margin-bottom: 20px;
 }
-
 th,
 td {
+  border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
-th {
-  color: #b44d28;
-  font-weight: bold;
-  background-color: rgba(180, 77, 40, 0.05);
-}
-
-/*СПИСКИ*/
-ul,
-ol {
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-/*ФОРМА*/
-form label {
-  font-weight: bold;
-  color: #555;
-  font-size: 0.9em;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
+/* Модальне вікно */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+.modal-content {
+  background: white;
+  margin: 10% auto;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  position: relative;
+}
+.dark-mode .modal-content {
+  background: #2b2b2b;
+  color: white;
+}
+.close-button {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* Стилі для форми в модалці */
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  margin: 10px 0;
   padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
-  background-color: #fff;
-  font-family: inherit;
 }
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: #b44d28;
-}
-
-button[type="submit"] {
-  background-color: #b44d28;
-  color: #fff;
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  background: #b44d28;
+  color: white;
   border: none;
-  padding: 12px 25px;
-  font-size: 1em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
-  background-color: #8c3a1e;
-}
-
-/* FOOTER*/
-footer {
-  text-align: center;
-  font-size: 0.9em;
-  color: #666;
-}
-
-footer a {
-  color: #b44d28;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/*АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ*/
-@media (max-width: 600px) {
-  header {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "img"
-      "name"
-      "title"
-      "nav";
-    text-align: center;
-  }
-
-  header img {
-    margin: 0 auto;
-  }
-
-  header nav ul {
-    justify-content: center;
-  }
-
-  body {
-    padding: 20px;
-  }
+/* Футер інфо */
+#storage-display {
+  font-size: 11px;
+  color: #888;
+  margin-top: 15px;
+  word-break: break-all;
 }
