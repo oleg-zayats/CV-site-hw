@@ -88,12 +88,17 @@
       <div id="storage-display"></div>
     </footer>
 
-    <div id="contact-modal" class="modal">
-      <div class="modal-content">
+    <div id="contact-modal" class="modal-overlay">
+      <div class="modal-box">
         <span class="close-button">&times;</span>
-        <h3>Форма зворотнього зв'язку</h3>
-        <p>Ви вже хвилину на сайті! Чи є у вас запитання?</p>
-        <form action="https://formspree.io/f/ВАШ_ЕНДПОЙНТ" method="POST">
+        <h3>Зворотній зв'язок</h3>
+        <p>Ви на сайті вже більше хвилини. Маєте питання?</p>
+
+        <form
+          action="https://formspree.io/f/xbdqpada"
+          method="POST"
+          id="feedback-form"
+        >
           <input type="text" name="name" placeholder="Ваше ім'я" required />
           <input type="email" name="email" placeholder="Ваш Email" required />
           <input
@@ -107,7 +112,7 @@
             placeholder="Ваше повідомлення"
             rows="4"
           ></textarea>
-          <button type="submit">Відправити</button>
+          <button type="submit" id="submit-btn">Відправити</button>
         </form>
       </div>
     </div>

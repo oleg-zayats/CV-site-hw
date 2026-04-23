@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 2. Динамічний вміст (JSONPlaceholder) ---
     // Вкажи свій порядковий номер у журналі замість "1"
-    const myVariant = 1; 
+    const myVariant = 9; 
     const commentsContainer = document.getElementById('comments-container');
 
     fetch(`https://jsonplaceholder.typicode.com/posts/${myVariant}/comments`)
