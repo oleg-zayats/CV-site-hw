@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const footerStorage = document.getElementById('storage-display');
     footerStorage.innerHTML = `<strong>Системні дані (з localStorage):</strong> ${localStorage.getItem('userSystemInfo')}`;
 
-    // --- 2. Динамічний вміст (JSONPlaceholder) ---
-    // Вкажи свій порядковий номер у журналі замість "1"
+    // --- 2. Динамічний вміст  ---
     const myVariant = 9; 
     const commentsContainer = document.getElementById('comments-container');
 
@@ -39,19 +38,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     // --- 3. Модальне вікно (через 1 хвилину) ---
+    // Знаходимо елементи за новими класами
     const modal = document.getElementById('contact-modal');
     const closeBtn = document.querySelector('.close-button');
 
-    setTimeout(() => {
-        modal.style.display = 'block';
-    }, 60000); // 60 000 мс = 1 хвилина
 
-    closeBtn.onclick = () => modal.style.display = 'none';
-    window.onclick = (event) => {
-        if (event.target == modal) modal.style.display = 'none';
+    const showModal = () => {
+        modal.style.display = 'flex';
     };
 
-    // --- 4. Перемикання теми (Ручне та Автоматичне) ---
+    // Таймер 
+    setTimeout(showModal, 60000); 
+
+    // Закриття
+    closeBtn.onclick = () => modal.style.display = 'none';
+
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+    // --- 4. Перемикання теми  ---
     const themeToggle = document.getElementById('theme-toggle');
     
     const applyTheme = (isDark) => {
@@ -74,5 +82,5 @@ document.addEventListener("DOMContentLoaded", () => {
         applyTheme(isNight);
     };
 
-    checkTimeAndTheme(); // Запустити при завантаженні
+    checkTimeAndTheme(); 
 });
